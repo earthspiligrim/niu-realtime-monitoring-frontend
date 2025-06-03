@@ -8,10 +8,19 @@ import { HistoricalAlerts } from './components/HistoricalAlerts';
 import { Footer } from './components/Footer';
 import { useMetricsData } from './hooks/useMetricsData';
 import './index.css';
+import { AlertData, TaskData } from './types';
 
+export type AlertLog = {
+  message: string;
+  timestamp: string;
+  severity?: string;
+  // Add other fields as needed
+};
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [contributor, setContributor] = useState("Rithika");
+  // Define the AlertLog type according to your alert log structure
+
   const [alertLogs, setAlertLogs] = useState<AlertLog[]>([]);
   const [alertData, setAlertData] = useState<AlertData[]>([]);
   const [taskData, setTaskData] = useState<TaskData[]>([]);
@@ -64,7 +73,7 @@ function App() {
   };
 
   return (
-    <div className={`dashboard ${darkMode ? "dark" : "light"}`}>
+   <div className={`dashboard ${darkMode ? "dark" : "light"}`}>
       <Navigation 
         darkMode={darkMode} 
         toggleTheme={toggleTheme} 
@@ -78,7 +87,9 @@ function App() {
       </p>
 
       {alertLogs.length > 0 && (
-        <AlertLog alertLogs={alertLogs} />
+        <AlertLog
+          alertLogs={alertLogs}
+        />
       )}
 
       <MetricsContainer metrics={metrics} />

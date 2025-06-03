@@ -58,9 +58,9 @@ export const useMetricsData = (contributor: string, setAlertLogs: React.Dispatch
         setAlertLogs(logs => [
           ...logs,
           {
-            time: now,
+            timestamp: now,
             contributor: current,
-            level: newCount >= 3 ? "escalation" : "warning",
+            severity: newCount >= 3 ? "escalation" : "warning",
             message: alertMessage
           }
         ]);

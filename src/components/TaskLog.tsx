@@ -19,13 +19,13 @@ export const TaskLog: React.FC<TaskLogProps> = ({ taskData }) => {
         {taskData.length === 0 ? (
           <p>No task history found.</p>
         ) : (
-          <ul>
-            {taskData.map((task, index) => (
+            <ul>
+            {taskData.map((task: TaskData, index: number) => (
               <li key={index}>
-                <strong>{task.timestamp}</strong> — {task.task} by <b>{task.contributor}</b>
+              <strong>{task.timestamp}</strong> — {task.task} by <b>{task.contributor}</b>
               </li>
             ))}
-          </ul>
+            </ul>
         )}
       </div>
     </motion.div>

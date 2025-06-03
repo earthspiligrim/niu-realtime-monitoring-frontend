@@ -9,13 +9,19 @@ export interface ChartDataPoint {
   time: string;
   value: number;
 }
-
-export interface AlertLog {
-  time: string;
-  contributor: string;
-  level: 'warning' | 'escalation';
-  message: string;
-}
+  export type AlertLog = {
+    message: string;
+    timestamp: string;
+    severity?: string;
+    // Add other fields as needed
+  };
+  
+// export interface AlertLog {
+//   time: string;
+//   contributor: string;
+//   level: 'warning' | 'escalation';
+//   message: string;
+// }
 
 export interface AlertData {
   contributor: string;
